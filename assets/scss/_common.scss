@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  color: $color-gray;
+
+  font-family: $font-main;
+  font-size: $font-size;
+}
+
+@mixin lg-min {
+  @media (min-width: $lg) {
+    @content;
+  }
+}
+@mixin lg-md {
+  @media (max-width: $lg - 0.2) and (min-width: $md) {
+    @content;
+  }
+}
+@mixin md {
+  @media (max-width: $md - 0.2) {
+    @content;
+  }
+}
+h1 {
+  letter-spacing: 0.08em;
+
+  font-family: $font-header;
+  font-weight: 300;
+  line-height: 1.2;
+
+  @include lg-min {
+    font-size: 3.75rem;
+  }
+  @include lg-md {
+    font-size: 2.5rem;
+  }
+  @include md {
+    font-size: 1.875rem;
+  }
+}
+h2 {
+  letter-spacing: 0.1em;
+  color: $color-primary;
+  font-family: $font-header;
+  line-height: 1.2em;
+}
+h3 {
+  letter-spacing: 0.05em;
+  color: $color-gray;
+  font-size: 1.125rem;
+}
+a {
+  text-decoration: none;
+  color: $color-light;
+}
+p {
+  color: $color-gray;
+  letter-spacing: 0.3px;
+}
+
+.btn {
+  border: 2px solid $color-light;
+  background-color: rgba($color-light, 0.1);
+
+  @extend %btn-common;
+  @include lg-min {
+    min-width: 250px;
+    height: 60px;
+    padding: 18px $gap;
+
+    font-size: 1.125rem;
+  }
+  @include lg-md {
+    min-width: 200px;
+    height: 50px;
+    padding: 14px $gap;
+
+    font-size: 1rem;
+  }
+  @include md {
+    min-width: 170px;
+    height: 40px;
+    padding: 9px $gap;
+
+    font-size: 1rem;
+  }
+}
+.btn-accent {
+  height: 60px;
+  padding: 18px $gap;
+
+  border: 2px solid $color-primary;
+  background-color: rgba($color-primary, 0.8);
+
+  font-size: 1.125rem;
+
+  @extend %btn-common;
+  @include sm-min {
+    min-width: 350px;
+  }
+  @include sm {
+    width: 100%;
+  }
+}
